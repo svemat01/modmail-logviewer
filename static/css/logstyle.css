@@ -64,7 +64,7 @@ img {
 }
 
 .system-tag {
-    background: #7289da;
+    background: var(--theme-primary);
     font-size: 10px;
     font-weight: 600;
     color: #fff!important;
@@ -95,7 +95,7 @@ img {
 
 .button {
     align-co: right;
-    background-color:#7289da; 
+    background-color:var(--theme-primary); 
     color: rgba(255, 255, 255, 0.7);
     border:transparent; 
     border-radius: 2px; 
@@ -444,7 +444,7 @@ a {
 
 .mention {
     background-color: rgba(115, 139, 215, 0.1);
-    color: #7289da;
+    color: var(--theme-primary);
 }
 
 /* === INFO === */
@@ -515,11 +515,11 @@ a {
   * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   
   input:checked + .lever {
-    background-color: #7289da;
+    background-color: var(--theme-primary);
   }
   
   input:focus + .lever {
-    box-shadow: 0 0 1px #7289da;
+    box-shadow: 0 0 1px var(--theme-primary);
   }
   
   input:checked + .lever:before {

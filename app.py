@@ -23,8 +23,10 @@ if prefix == "NONE":
 
 MONGO_URI = os.getenv("MONGO_URI") or os.getenv("CONNECTION_URI")
 if not MONGO_URI:
-    print("No CONNECTION_URI config var found. "
-          "Please enter your MongoDB connection URI in the configuration or .env file.")
+    print(
+        "No CONNECTION_URI config var found. "
+        "Please enter your MongoDB connection URI in the configuration or .env file."
+    )
     exit(1)
 
 app = Sanic(__name__)
@@ -32,10 +34,24 @@ app.static("/static", "./static")
 
 jinja_env = Environment(loader=FileSystemLoader("templates"))
 
+data = {
+    "theme": {
+        "primary": os.getenv("PRIMARY_COLOR", "#7289da"),
+    },
+    "name": os.getenv("BOT_NAME", "Logviewer"),
+}
+
 
 def render_template(name, *args, **kwargs):
     template = jinja_env.get_template(name + ".html")
-    return response.html(template.render(*args, **kwargs))
+
+    return response.html(
+        template.render(
+            *args,
+            **kwargs,
+            data=data,
+        )
+    )
 
 
 app.ctx.render_template = render_template
@@ -86,5 +102,5 @@ if __name__ == "__main__":
     app.run(
         host=os.getenv("HOST", "0.0.0.0"),
         port=os.getenv("PORT", 8000),
-        debug=bool(os.getenv("DEBUG", False)),
+        dev=bool(os.getenv("DEBUG", False)),
     )

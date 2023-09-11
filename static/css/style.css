@@ -36,11 +36,11 @@ body {
 }
 
 .btn {
-  background-color: #7289DA;
+  background-color: var(--theme-primary);
 }
 
 .btn:visited {
-  background-color: #7289DA;
+  background-color: var(--theme-primary);
 }
 
 .btn:hover {
@@ -56,7 +56,7 @@ nav {
 
 #dashbots {
   font-family: 'Bowlby One SC', cursive;
-  color: #7289DA;
+  color: var(--theme-primary);
   user-select: none;
 }
 
@@ -72,7 +72,7 @@ nav {
 }
 
 .discord {
-  color: #7289DA;
+  color: var(--theme-primary);
 }
 
 #main-card {
